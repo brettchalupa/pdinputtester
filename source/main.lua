@@ -8,6 +8,7 @@ DISPLAY_HEIGHT = playdate.display.getHeight()
 DISPLAY_WIDTH = playdate.display.getWidth()
 
 local FPS <const> = 30 -- change this to whatever target framerate you want; Playdate max FPS is 50
+local mic <const> = playdate.sound.micinput
 
 SCENE = {
   GAMEPLAY = 1,
@@ -59,10 +60,14 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function playdate.gameWillTerminate()
+  mic.stopListening()
+  playdate.stopAccelerometer()
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function playdate.deviceWillSleep()
+  mic.stopListening()
+  playdate.stopAccelerometer()
 end
 
 init()
