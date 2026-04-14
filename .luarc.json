@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.4",
+  "runtime.nonstandardSymbol": [
+    "+=",
+    "-=",
+    "*=",
+    "/=",
+    "//=",
+    "%=",
+    "<<=",
+    ">>=",
+    "&=",
+    "|=",
+    "^="
+  ],
+
+  "diagnostics.globals": ["import"],
+  "workspace.library": ["vendor/playdate-luacats"],
+  "format.defaultConfig": {
+    "indent_style": "space",
+    "indent_size": "2"
+  },
+  "format.enable": true,
+  "hint.enable": true,
+  "runtime.builtin": { "io": "disable", "os": "disable", "package": "disable" }
+}

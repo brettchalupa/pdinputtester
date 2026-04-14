@@ -1,0 +1,17 @@
+[
+  {
+    "label": "just: run",
+    "command": "just",
+    "args": ["run"],
+  },
+  {
+    "label": "just: build",
+    "command": "just",
+    "args": ["build"],
+  },
+  {
+    "label": "just: clean",
+    "command": "just",
+    "args": ["clean"],
+  },
+]

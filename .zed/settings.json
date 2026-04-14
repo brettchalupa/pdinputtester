@@ -1,0 +1,15 @@
+{
+  "file_scan_exclusions": ["vendor/playdate-luacats", "*.pdx"],
+  "languages": {
+    "Lua": {
+      "format_on_save": "on",
+      "formatter": "language_server",
+      "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+      },
+    },
+  },
+}
