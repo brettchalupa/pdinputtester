@@ -1,36 +1,20 @@
 local gfx <const> = playdate.graphics
+local md <const> = playdate.metadata
+local MARGIN <const> = 10
 
-local player = {
-  x = 10,
-  y = 10,
-  w = 16,  -- width
-  h = 16,  -- height
-  s = 200, -- speed in px/s
-}
+local version = md.version
+local VERSION_TEXT_WIDTH = Fonts.asheville14Bold:getTextWidth(version)
+local ASHEVILLE14_HEIGHT = Fonts.asheville14Bold:getHeight()
 
 local function update(dt)
-  SaveData.playtime += dt
-
-  if playdate.buttonIsPressed(playdate.kButtonLeft) then
-    player.x -= player.s * dt
-  end
-  if playdate.buttonIsPressed(playdate.kButtonRight) then
-    player.x += player.s * dt
-  end
-  if playdate.buttonIsPressed(playdate.kButtonUp) then
-    player.y -= player.s * dt
-  end
-  if playdate.buttonIsPressed(playdate.kButtonDown) then
-    player.y += player.s * dt
-  end
-
-  if playdate.buttonJustPressed(playdate.kButtonB) then
-    PlaySFX("B3")
-    SwitchScene(SCENE.MAIN_MENU)
-  end
-
   gfx.clear()
-  gfx.fillRect(player.x, player.y, player.w, player.h)
+
+  SetFont(Fonts.asheville24Light)
+  gfx.drawText(md.name, MARGIN, MARGIN)
+
+  SetFont(Fonts.default)
+  gfx.drawText("by " .. md.author, 10, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
+  gfx.drawText(version, DISPLAY_WIDTH - VERSION_TEXT_WIDTH - MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
 end
 
 local scene = {

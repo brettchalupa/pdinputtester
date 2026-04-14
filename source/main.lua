@@ -1,5 +1,4 @@
 import("fonts")
-import("save_data")
 import("settings")
 import("sound")
 
@@ -11,18 +10,14 @@ DISPLAY_WIDTH = playdate.display.getWidth()
 local FPS <const> = 30 -- change this to whatever target framerate you want; Playdate max FPS is 50
 
 SCENE = {
-  MAIN_MENU = 1,
-  CREDITS = 2,
-  GAMEPLAY = 3,
+  GAMEPLAY = 1,
 }
 
 local scenes = {
-  [SCENE.MAIN_MENU] = import("scenes/main_menu"),
-  [SCENE.CREDITS] = import("scenes/credits"),
   [SCENE.GAMEPLAY] = import("scenes/gameplay"),
 }
 
-local currentScene = scenes[SCENE.MAIN_MENU]
+local currentScene = scenes[SCENE.GAMEPLAY]
 local pendingScene = nil
 
 -- Switch the active scene to the specified key from `SCENE`
@@ -35,12 +30,8 @@ local function init()
   playdate.display.setRefreshRate(FPS)
 
   LoadSettings()
-  LoadSaveData()
 
   local menu = playdate.getSystemMenu()
-  menu:addMenuItem("main menu", function()
-    SwitchScene(SCENE.MAIN_MENU)
-  end)
   menu:addCheckmarkMenuItem("play sfx", Settings.playSFX, function(value)
     UpdateSetting(SETTING.PLAY_SFX, value)
   end)
@@ -68,12 +59,10 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function playdate.gameWillTerminate()
-  SaveSaveData()
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function playdate.deviceWillSleep()
-  SaveSaveData()
 end
 
 init()
