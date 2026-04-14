@@ -2,6 +2,6 @@ name=PDInputTester
 author=Brett Chalupa
 description=Utility to verify your Playdate console inputs work
 bundleID=com.brettmakesgames.pdinputtester
-version=0.1-dev
+version=0.1
 buildNumber=1
 itch=brettchalupa/pdinputtester
