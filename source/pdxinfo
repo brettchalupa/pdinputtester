@@ -1,7 +1,7 @@
-name=YOURGAME
-author=YOURNAME
-description=Some pithy description
-bundleID=com.yourbundleid.yourgame
+name=PDInputTester
+author=Brett Chalupa
+description=Utility to verify your Playdate console inputs work
+bundleID=com.brettmakesgames.pdinputtester
 version=0.1-dev
 buildNumber=1
-#itch=username/gameslug
+itch=brettchalupa/pdinputtester

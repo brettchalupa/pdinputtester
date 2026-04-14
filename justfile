@@ -1,4 +1,4 @@
-bin := "YOURGAME.pdx"
+bin := "PDInputTester.pdx"
 
 default:
     @just choose
