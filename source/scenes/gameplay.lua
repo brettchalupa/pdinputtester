@@ -7,12 +7,12 @@ local VERSION_TEXT_WIDTH = Fonts.asheville14Bold:getTextWidth(version)
 local ASHEVILLE14_HEIGHT = Fonts.asheville14Bold:getHeight()
 
 local buttons = {
-  {playdate.kButtonUp, "Up"},
-  {playdate.kButtonDown, "Down"},
-  {playdate.kButtonLeft, "Left"},
-  {playdate.kButtonRight, "Right"},
-  {playdate.kButtonA, "A"},
-  {playdate.kButtonB, "B"},
+  { playdate.kButtonUp,    "Up" },
+  { playdate.kButtonDown,  "Down" },
+  { playdate.kButtonLeft,  "Left" },
+  { playdate.kButtonRight, "Right" },
+  { playdate.kButtonA,     "A" },
+  { playdate.kButtonB,     "B" },
 }
 
 local function decodePlaydateButtons(bitmask)
@@ -38,12 +38,12 @@ local function update(dt)
 
   for i, button in ipairs(buttons) do
     local value, buttonName = button[1], button[2]
-    gfx.drawText(buttonName .. ": " .. tostring(playdate.buttonIsPressed(value)), MARGIN, 24 * i + 24)
+    gfx.drawText(buttonName .. ": " .. tostring(playdate.buttonIsPressed(value)), MARGIN, 24 * i + 32)
   end
 
   if not playdate.isCrankDocked() then
-    gfx.drawText("Crank Pos: " .. tostring(playdate.getCrankPosition()), 160, 48)
-    gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 72)
+    gfx.drawText("Crank Pos: " .. tostring(playdate.getCrankPosition()), 160, 56)
+    gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 80)
   end
 
   gfx.drawText("by " .. md.author, MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
