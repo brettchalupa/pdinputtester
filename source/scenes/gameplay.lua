@@ -15,20 +15,7 @@ local buttons = {
   { playdate.kButtonB,     "B" },
 }
 
-local function decodePlaydateButtons(bitmask)
-  local pressedButtons = {}
-
-  for _, button in ipairs(buttons) do
-    local value, buttonName = button[1], button[2]
-    if bitmask & value ~= 0 then
-      table.insert(pressedButtons, buttonName)
-    end
-  end
-
-  return pressedButtons
-end
-
-local function update(dt)
+local function update(_dt)
   gfx.clear()
 
   SetFont(Fonts.asheville24Light)
