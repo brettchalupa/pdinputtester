@@ -1,5 +1,9 @@
 # PDInputTester
 
+A simple input testing utility for Playdate.
+
+Useful to test whether or not a given button is working reliably or not.
+
 [Made with Sunny ☀️](https://github.com/brettchalupa/sunny)
 
 ## Developing
