@@ -1,5 +1,6 @@
 local gfx <const> = playdate.graphics
 local md <const> = playdate.metadata
+local mic <const> = playdate.sound.micinput
 local MARGIN <const> = 12
 
 local version = md.version
@@ -15,6 +16,9 @@ local buttons = {
   { playdate.kButtonB,     "B" },
 }
 
+mic.startListening()
+playdate.startAccelerometer()
+
 local function update(_dt)
   gfx.clear()
 
@@ -28,9 +32,16 @@ local function update(_dt)
     gfx.drawText(buttonName .. ": " .. tostring(playdate.buttonIsPressed(value)), MARGIN, 24 * i + 32)
   end
 
+  gfx.drawText("Mic Source: " .. mic.getSource(), 160, 56)
+  gfx.drawText("Mic Level: " .. string.format("%.4f", mic.getLevel()), 160, 80)
+
+  local ax, ay, az = playdate.readAccelerometer()
+  gfx.drawText("Accelerometer:", 160, 116)
+  gfx.drawText(string.format("%.4f, %.4f, %.4f", ax, ay, az), 160, 140)
+
   if not playdate.isCrankDocked() then
-    gfx.drawText("Crank Pos: " .. tostring(playdate.getCrankPosition()), 160, 56)
-    gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 80)
+    gfx.drawText("Crank Pos: " .. tostring(playdate.getCrankPosition()), 160, 176)
+    gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 200)
   end
 
   gfx.drawText("by " .. md.author, MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
