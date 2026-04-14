@@ -44,7 +44,6 @@ local function update(_dt)
     gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 200)
   end
 
-  gfx.drawText("by " .. md.author, MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
   gfx.drawText(version, DISPLAY_WIDTH - VERSION_TEXT_WIDTH - MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
 end
 
