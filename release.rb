@@ -17,7 +17,7 @@ id = "#{version} (#{build_number})"
 
 puts("Preparing to release #{game_name} #{id}...")
 abort("itch key not specified in source/pdxinfo, can't release") if itch.nil?
-abort("butler not installed or not in path") unless system("butler --version")
+abort("butler not installed or not in path") unless system("which butler")
 # Remove this safety check if you don't want it
 abort("pdxinfo's version ends in -dev! can't release a dev version") if version.include?("-dev")
 print "Did you update the version, build number, and tag in git? (y/n): "
