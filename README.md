@@ -1,5 +1,7 @@
 # PDInputTester
 
+**Note:** turns out a much better Input Test is built into the system: Settings > Diagnostics > Input Test. Use that instead!
+
 A simple input testing utility for Playdate.
 
 Useful for testing whether or not a given input functionality is working reliably or not.
