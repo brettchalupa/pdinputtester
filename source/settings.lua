@@ -6,7 +6,7 @@ SETTING = {
 -- default values, gets loaded in main.lua's init by calling LoadSettings if
 -- present on disk
 Settings = {
-  [SETTING.PLAY_SFX] = true, -- whether or not to play sound effects
+  [SETTING.PLAY_SFX] = false, -- whether or not to play sound effects
   -- add more settings here
 }
 

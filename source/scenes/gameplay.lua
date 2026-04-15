@@ -1,7 +1,7 @@
 local gfx <const> = playdate.graphics
 local md <const> = playdate.metadata
 local mic <const> = playdate.sound.micinput
-local MARGIN <const> = 12
+local MARGIN <const> = 8
 
 local version = md.version
 local VERSION_TEXT_WIDTH = Fonts.asheville14Bold:getTextWidth(version)
@@ -27,24 +27,32 @@ local function update(_dt)
 
   SetFont(Fonts.default)
 
+  local anyPressed = false
+
   for i, button in ipairs(buttons) do
     local value, buttonName = button[1], button[2]
-    gfx.drawText(buttonName .. ": " .. tostring(playdate.buttonIsPressed(value)), MARGIN, 24 * i + 32)
+    local isPressed = playdate.buttonIsPressed(value)
+    if isPressed then
+      anyPressed = true
+    end
+    gfx.drawText(buttonName .. ": " .. tostring(isPressed), MARGIN, 24 * i + 32)
+  end
+
+  if anyPressed then
+    PlaySFX("B3")
   end
 
   gfx.drawText("Mic Source: " .. mic.getSource(), 160, 56)
-  gfx.drawText("Mic Level: " .. string.format("%.4f", mic.getLevel()), 160, 80)
+  gfx.drawText("Mic Level: " .. string.format("%.3f", mic.getLevel()), 160, 80)
 
   local ax, ay, az = playdate.readAccelerometer()
   gfx.drawText("Accelerometer:", 160, 116)
-  gfx.drawText(string.format("%.4f, %.4f, %.4f", ax, ay, az), 160, 140)
+  gfx.drawText(string.format("%.3f, %.3f, %.3f", ax, ay, az), 160, 140)
 
   if not playdate.isCrankDocked() then
-    gfx.drawText("Crank Pos: " .. tostring(playdate.getCrankPosition()), 160, 176)
-    gfx.drawText("Crank Change: " .. tostring(playdate.getCrankChange()), 160, 200)
+    gfx.drawText(string.format("Crank Pos: %.3f", playdate.getCrankPosition()), 160, 176)
+    gfx.drawText(string.format("Crank Change: %.3f", playdate.getCrankChange()), 160, 200)
   end
-
-  gfx.drawText(version, DISPLAY_WIDTH - VERSION_TEXT_WIDTH - MARGIN, DISPLAY_HEIGHT - ASHEVILLE14_HEIGHT - MARGIN)
 end
 
 local scene = {

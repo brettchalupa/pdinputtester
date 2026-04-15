@@ -2,11 +2,13 @@
 
 A simple input testing utility for Playdate.
 
-Useful to test whether or not a given button is working reliably or not.
+Useful for testing whether or not a given input functionality is working reliably or not.
 
 Download the latest release from [GitHub](https://github.com/brettchalupa/pdinputtester/releases/latest) or [itch.io](https://brettchalupa.itch.io/pdinputtester).
 
 [Made with Sunny ☀️](https://github.com/brettchalupa/sunny)
+
+[Learn how to make games for Playdate!](https://leanpub.com/playdatebook)
 
 ## Developing
 
