@@ -10,7 +10,7 @@ Download the latest release from [GitHub](https://github.com/brettchalupa/pdinpu
 
 [Made with Sunny ☀️](https://github.com/brettchalupa/sunny)
 
-[Learn how to make games for Playdate!](https://leanpub.com/playdatebook)
+[Learn how to make games for Playdate!](https://pdbook.net)
 
 ## Developing
 
